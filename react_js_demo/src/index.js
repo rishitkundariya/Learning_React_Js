@@ -5,6 +5,7 @@ import { CustomComponent } from './CustomComponent';
 import { Counter } from './Counter';
 import BackGroundChanger from './BackGroundChanger';
 import MaterialUi from './MaterialUi';
+import PasswordGenerator from './PasswordGenerator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
     {/* <CustomComponent/> */}
     {/* <Counter></Counter> */}
     {/* <MaterialUi></MaterialUi> */}
-    <BackGroundChanger></BackGroundChanger>
+    {/* <BackGroundChanger></BackGroundChanger> */}
+    <PasswordGenerator></PasswordGenerator>
   </React.StrictMode>
 );
