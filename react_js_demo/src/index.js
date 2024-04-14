@@ -6,7 +6,7 @@ import { Counter } from './Counter';
 import BackGroundChanger from './BackGroundChanger';
 import MaterialUi from './MaterialUi';
 import PasswordGenerator from './PasswordGenerator';
-
+import InputBox from './components/InputBox'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -15,6 +15,7 @@ root.render(
     {/* <Counter></Counter> */}
     {/* <MaterialUi></MaterialUi> */}
     {/* <BackGroundChanger></BackGroundChanger> */}
-    <PasswordGenerator></PasswordGenerator>
+    {/* <PasswordGenerator></PasswordGenerator> */}
+    <InputBox></InputBox>
   </React.StrictMode>
 );
