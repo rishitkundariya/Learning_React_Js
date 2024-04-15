@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import {
   TextField,
   InputLabel,
@@ -7,7 +7,7 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-function InputBox(
+function InputBox({
   lableName,
   amount,
   isAmountDisable = false,
@@ -15,8 +15,10 @@ function InputBox(
   currencyOption = [],
   selectCurrency = "usd",
   isCurrencyDisable = false,
-  className = ""
-) {
+  onCurrencyChange,
+  className = "",
+}) {
+  const amountInputId = useId();
   return (
     <>
       <div>
@@ -31,70 +33,38 @@ function InputBox(
                 verticalAlign: "bottom",
               }}
             >
-              From
+              {lableName}
             </Grid>
             <Grid item xs={2}>
               <TextField
-                id="outlined-basic"
+                id={amountInputId}
                 label="Amount"
+                value={amount}
                 variant="outlined"
+                disabled={isAmountDisable}
+                onChange={(e) =>
+                  onAmountChange && onAmountChange(e.target.value)
+                }
               />
             </Grid>
             <Grid item xs={2}>
               <InputLabel id="demo-simple-select-label">Currency</InputLabel>
-              <Select
+              <select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 label="Currency"
-              ></Select>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            spacing={5}
-            style={{ marginTop: "-25px", marginBottom: "30px" }}
-          >
-            <Grid item xs={8}>
-              <Button variant="contained">Swap</Button>
-            </Grid>
-          </Grid>
-          <Grid container spacing={2}>
-            <Grid
-              item
-              xs={1}
-              style={{
-                backgroundColor: "Green",
-                color: "white",
-                verticalAlign: "bottom",
-              }}
-            >
-              To
-            </Grid>
-            <Grid item xs={2}>
-              <TextField
-                id="outlined-basic"
-                label="Amount"
-                variant="outlined"
-              />
-            </Grid>
-            <Grid item xs={2}>
-              <InputLabel id="demo-simple-select-label">Currency</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                label="Currency"
-              ></Select>
-            </Grid>
-          </Grid>
-
-          <Grid
-            container
-            spacing={5}
-            style={{ marginTop: "-25px", marginBottom: "30px" }}
-          >
-            <Grid item xs={8}>
-              <Button variant="contained">Convert Amount</Button>
+                value={selectCurrency}
+                disabled={isCurrencyDisable}
+                onChange={(e) =>
+                  onCurrencyChange && onCurrencyChange(e.target.value)
+                }
+              >
+                {currencyOption.map((currenty) => (
+                  <option key={currenty} value={currenty}>
+                    {currenty}
+                  </option>
+                ))}
+              </select>
             </Grid>
           </Grid>
         </div>
