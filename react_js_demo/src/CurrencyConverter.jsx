@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useCurrencyInfo from "./hooks/UseCurrencyInfo";
 import InputBox from "./components/InputBox";
 import { Button } from "@mui/base";
@@ -18,11 +18,12 @@ function CurrencyConverter() {
     setAmount(convertedAmount);
     setConvertedAmount(amount);
   };
-
   const convert = () => {
     setConvertedAmount(amount * useCurrencyInf[to]);
-    console.log(convertedAmount);
   };
+  useEffect(() => {
+    convert();
+  }, [from, amount, useCurrencyInf]);
 
   return (
     <>
@@ -48,6 +49,7 @@ function CurrencyConverter() {
       ></InputBox>
 
       <Button onClick={convert}>Convert</Button>
+      <Button onClick={swap}>swap</Button>
     </>
   );
 }
