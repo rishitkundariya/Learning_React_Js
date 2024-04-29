@@ -20,6 +20,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import Search from "./components/Search/Search";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,10 @@ const router = createBrowserRouter(
       <Route path="bgchanger" element={<BackGroundChanger />}></Route>
       <Route path="counter" element={<Counter></Counter>}></Route>
       <Route path="password" element={<PasswordGenerator />}></Route>
+      <Route
+        path="search/:searchparam/:secondParam"
+        element={<Search />}
+      ></Route>
     </Route>
   )
 );

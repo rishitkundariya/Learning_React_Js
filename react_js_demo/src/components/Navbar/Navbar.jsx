@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -48,9 +48,13 @@ export default function Navbar() {
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <NavLink
+                class="btn btn-outline-success"
+                to="search/Rishit"
+                type="submit"
+              >
                 Search
-              </button>
+              </NavLink>
             </form>
           </div>
         </div>
