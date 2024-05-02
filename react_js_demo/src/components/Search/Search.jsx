@@ -3,8 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 export default function Search() {
-  const searchparam = useParams().searchparam;
-  const secondParam = useParams().secondParam;
+  const { searchparam, secondParam } = useParams();
   return (
     <>
       <div>

@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 
 export default function Navbar() {
+  const { data } = useContext(UserContext);
+  console.log(data);
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <Link class="navbar-brand">Navbar</Link>
+          <Link class="navbar-brand" to="dashboard">
+            DashBoard
+          </Link>
           <button
             class="navbar-toggler"
             type="button"
@@ -40,6 +45,7 @@ export default function Navbar() {
                   Password Generator
                 </Link>
               </li>
+              <li class="nav-item">{data?.username}</li>
             </ul>
             <form class="d-flex">
               <input
